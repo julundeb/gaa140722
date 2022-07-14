@@ -20,10 +20,9 @@ function Search({ placeholder }) {
 
   const startFiltrering = (event) => {
     const soekeOrd = event.target.value;
-    console.log(soekeOrd);
+
     settinput(soekeOrd);
     const filtrer = posts.filter((value) => {
-      console.log(value);
       if (value && value.turnavn && soekeOrd) {
         return value.turnavn.toLowerCase().includes(soekeOrd.toLowerCase());
       }
@@ -35,11 +34,6 @@ function Search({ placeholder }) {
     } else {
       settFiltrertData(filtrer);
     }
-  };
-
-  const tomtInput = () => {
-    settFiltrertData([]);
-    settinput("");
   };
 
   return (
