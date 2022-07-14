@@ -54,6 +54,7 @@ function Search({ placeholder }) {
                 className="dataitem"
                 href={`/Tur/${value._id}`}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <p>{value.turnavn} </p>
               </a>

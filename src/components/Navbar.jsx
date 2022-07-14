@@ -38,6 +38,7 @@ function Navbar() {
                 </li>
               );
             }
+            return false;
           })}
         </ul>
       </nav>

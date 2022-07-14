@@ -27,7 +27,7 @@ const Nordmarka = () => {
             return (
               <article key={x._id}>
                 {" "}
-                {<img src={urlFor(x.bilde).url()} className="img" />}{" "}
+                {<img src={urlFor(x.bilde).url()} alt="" className="img" />}{" "}
                 <div turnavn={x.turnavn} />
                 <button
                   className="FilterTurknapp"
@@ -39,7 +39,7 @@ const Nordmarka = () => {
                   {x.turnavn}{" "}
                 </button>
               </article>
-            );
+            );return false;
         })}
       </div>
     </div>

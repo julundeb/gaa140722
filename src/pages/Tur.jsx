@@ -29,7 +29,7 @@ const Tur = () => {
       <p>{km} km i {omrade}</p>
       <p className="Infotekst">{info}</p>
       
-      {kart && <img src={urlFor(kart).url()} className="kart" />}
+      {kart && <img src={urlFor(kart).url()} alt="" className="kart" />}
       
     </div>
   );

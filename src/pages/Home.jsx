@@ -40,7 +40,7 @@ const Home = () => {
                   }}
                 >
                   {" "}
-                  {<img src={urlFor(x.bilde).url()} className="img" />}{" "}
+                  {<img src={urlFor(x.bilde).url()} alt="" className="img" />}{" "}
                 </div>
 
                 <div turnavn={x.turnavn} />
