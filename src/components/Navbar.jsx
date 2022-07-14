@@ -4,7 +4,6 @@ import * as Icons from "react-icons/fa";
 import { navItems } from "./NavItems";
 import DropdownO from "./DropdownO";
 import DropdownL from "./DropdownL";
-import Search from "./Search";
 
 
 function Navbar() {
@@ -13,17 +12,15 @@ function Navbar() {
 
   return (
     <>
-    
       <nav className="navbar">
-     
-        <Link to="/" className="navbar-logo">
-        
-        </Link>
         <ul className="nav-items">
+          
           {navItems.map((item) => {
             if (item.title === "Område") {
+              
               return (
-                <li
+                
+                <li 
                   key={item.id}
                   className={item.cName}
                   onMouseEnter={() => setDropdown1(true)}
@@ -33,10 +30,9 @@ function Navbar() {
                   {dropdown1 && <DropdownO />}
                 </li>
               );
-            }
-            else if (item.title === "Lengde") {
+            } else if (item.title === "Lengde") {
               return (
-                <li
+                <li 
                   key={item.id}
                   className={item.cName}
                   onMouseEnter={() => setDropdown2(true)}
@@ -47,11 +43,8 @@ function Navbar() {
                 </li>
               );
             }
-            
-           
           })}
         </ul>
-        
       </nav>
     </>
   );

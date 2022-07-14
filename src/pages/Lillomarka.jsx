@@ -1,28 +1,40 @@
 import React from "react";
 import data from "../data";
-
+import client, { urlFor } from "../utils/sanity";
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 const Lillomarka = () => {
+  const [posts, setPosts] = useState([]);
+  client
+    .fetch(`*[_type=="tur"]{_id,turnavn, info, omrade, km, bilde, kart}`)
+    .then((turer) => {
+      setPosts(turer);
+      console.log(turer);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   const [turer, settTurer] = useState(data);
   let navigate = useNavigate();
   return (
-    <div className="hoved">
+    <div >
       <Link to="/" className="Tilbake">
         Tilbake
       </Link>
 
-      <h1> Turer i Lillomarka</h1>
-      {turer.map((x) => {
+      <h1 className="tekst"> Turer i Lillomarka</h1>
+      <div className="filterside">
+      {posts.map((x) => {
         if (x.omrade === "Lillomarka")
           return (
-            <article key={x.id}>
-              <img src={x.img} />
+            <article key={x._id}>
+              {" "}
+              {<img src={urlFor(x.bilde).url()} className="img" />}{" "}
               <div turnavn={x.turnavn} />
-
-              <button className="TurKnapp"
+              <button
+                className="FilterTurknapp"
                 onClick={() => {
-                  navigate(`/Tur/${x.id}`);
+                  navigate(`/Tur/${x._id}`);
                 }}
               >
                 {" "}
@@ -31,6 +43,7 @@ const Lillomarka = () => {
             </article>
           );
       })}
+    </div>
     </div>
   );
 };
