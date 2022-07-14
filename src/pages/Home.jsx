@@ -1,52 +1,55 @@
 import React from "react";
 import { useState } from "react";
-import "../App.css";
 import data from "../data";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import Tur from "./Tur";
-import client from "../utils/sanity";
+import Logo from "../components/Logo";
+import client, { urlFor } from "../utils/sanity";
 import Search from "../components/Search";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
-  const [posts, setPosts] = useState(null);
-  client
-    .fetch(`*[_type=="tur"]{turnavn, info, omrade, km, bilde}`)
-    .then((turer) => {
-      setPosts(turer);
-      console.log(turer);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    client
+      .fetch(`*[_type=="tur"]{_id,turnavn, info, omrade, km, bilde, kart}`)
+      .then((turer) => {
+        setPosts(turer);
+        console.log(turer);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   const [turer, settTurer] = useState(data);
   let navigate = useNavigate();
   return (
     <div>
       <Header />
+      <Logo className="Logo" />
       <Navbar />
-      <Search className="Sokebar" />
+      <Search />
       <div className="hoved">
-        {turer.map((x) => {
+        {posts.map((x) => {
           return (
-            <article key={x.id}>
-              <section className="PlasseringvTur">
-              <div
-                  
+            <article key={x._id}>
+              <section className="PlasseringvTurer">
+                <div
                   onClick={() => {
-                    navigate(`/Tur/${x.id}`);
+                    navigate(`/Tur/${x._id}`);
                   }}
-               >
+                >
                   {" "}
-                  {<img src={x.img} className="img" />}{" "}</div>
-                
+                  {<img src={urlFor(x.bilde).url()} className="img" />}{" "}
+                </div>
+
                 <div turnavn={x.turnavn} />
 
-                <button 
+                <button
                   className="TurKnapp"
                   onClick={() => {
-                    navigate(`/Tur/${x.id}`);
+                    navigate(`/Tur/${x._id}`);
                   }}
                 >
                   {" "}

@@ -9,7 +9,7 @@ function DropdownL() {
   return (
     <>
       <ul
-        className={dropdown2 ? "services-submenu clicked" : "services-submenu"}
+        className={dropdown2 ? "submenu clicked" : "submenu"}
         onClick={() => setDropdown2(!dropdown2)}
       >
         {LengdeDropdown.map((item) => {

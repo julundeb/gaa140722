@@ -9,7 +9,7 @@ function DropdownO() {
   return (
     <>
       <ul
-        className={dropdown1 ? "services-submenu clicked" : "services-submenu"}
+        className={dropdown1 ? "submenu clicked" : "submenu"}
         onClick={() => setDropdown1(!dropdown1)}
       >
         {OmradeDropdown.map((item) => {
