@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import * as Icons from "react-icons/fa";
 import { navItems } from "./NavItems";
 import DropdownO from "./DropdownO";
 import DropdownL from "./DropdownL";
-
 
 function Navbar() {
   const [dropdown1, setDropdown1] = useState(false);
@@ -14,13 +12,10 @@ function Navbar() {
     <>
       <nav className="navbar">
         <ul className="nav-items">
-          
           {navItems.map((item) => {
             if (item.title === "Område") {
-              
               return (
-                
-                <li 
+                <li
                   key={item.id}
                   className={item.cName}
                   onMouseEnter={() => setDropdown1(true)}
@@ -32,7 +27,7 @@ function Navbar() {
               );
             } else if (item.title === "Lengde") {
               return (
-                <li 
+                <li
                   key={item.id}
                   className={item.cName}
                   onMouseEnter={() => setDropdown2(true)}

@@ -1,8 +1,8 @@
 import React from "react";
-import data from "../data";
+
 import { useState } from "react";
 import client, { urlFor } from "../utils/sanity";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 const Ostmarka = () => {
   const [posts, setPosts] = useState([]);
   client
@@ -15,7 +15,7 @@ const Ostmarka = () => {
       console.log(error);
     });
 
-  const [turer, settTurer] = useState(data);
+ 
   let navigate = useNavigate();
   return (
     <div >

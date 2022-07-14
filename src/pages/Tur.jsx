@@ -19,7 +19,7 @@ const Tur = () => {
     .catch((error) => {
       console.log(error);
     });
-  const { turnavn, omrade, bilde, info, km, kart } = post;
+  const { turnavn, omrade,  info, km, kart } = post;
   return (
     <div className="EnHelTur">
       <Link to="/" className="Tilbake">

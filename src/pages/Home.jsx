@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import data from "../data";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
@@ -22,7 +21,7 @@ const Home = () => {
         console.log(error);
       });
   }, []);
-  const [turer, settTurer] = useState(data);
+  
   let navigate = useNavigate();
   return (
     <div>

@@ -1,8 +1,7 @@
 import React from "react";
-import data from "../data";
 import client, { urlFor } from "../utils/sanity";
 import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const LengdeSide1 = () => {
   const [posts, setPosts] = useState([]);
   client
@@ -15,36 +14,35 @@ const LengdeSide1 = () => {
       console.log(error);
     });
 
-  const [turer, settTurer] = useState(data);
   let navigate = useNavigate();
   return (
-   <div>
+    <div>
       <Link to="/" className="Tilbake">
         Tilbake
       </Link>
 
       <h1 className="tekst"> Turer med lengde 1-3 km</h1>
       <div className="filterside">
-      {posts.map((x) => {
-        if (x.km <= 3)
-          return (
-            <article key={x._id}>
-              {" "}
-              {<img src={urlFor(x.bilde).url()} className="img" />}{" "}
-              <div turnavn={x.turnavn} />
-              <button
-                className="FilterTurknapp"
-                onClick={() => {
-                  navigate(`/Tur/${x._id}`);
-                }}
-              >
+        {posts.map((x) => {
+          if (x.km <= 3)
+            return (
+              <article key={x._id}>
                 {" "}
-                {x.turnavn}{" "}
-              </button>
-            </article>
-          );
-      })}
-    </div>
+                {<img src={urlFor(x.bilde).url()} className="img" />}{" "}
+                <div turnavn={x.turnavn} />
+                <button
+                  className="FilterTurknapp"
+                  onClick={() => {
+                    navigate(`/Tur/${x._id}`);
+                  }}
+                >
+                  {" "}
+                  {x.turnavn}{" "}
+                </button>
+              </article>
+            );
+        })}
+      </div>
     </div>
   );
 };

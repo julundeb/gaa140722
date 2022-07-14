@@ -2,7 +2,6 @@ import Home from "./pages/Home";
 import Tur from "./pages/Tur";
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import data from "./data";
 import Nordmarka from "./pages/Nordmarka";
 import Ostmarka from "./pages/Ostmarka";
 import LengdeSide1 from "./pages/LengdeSide1";

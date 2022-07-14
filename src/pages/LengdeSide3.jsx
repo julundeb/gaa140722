@@ -1,8 +1,7 @@
 import React from "react";
-import data from "../data";
 import client, { urlFor } from "../utils/sanity";
 import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 const LengdeSide3 = () => {
   const [posts, setPosts] = useState([]);
   client
@@ -14,7 +13,7 @@ const LengdeSide3 = () => {
     .catch((error) => {
       console.log(error);
     });
-  const [turer, settTurer] = useState(data);
+  
   let navigate = useNavigate();
   return (
     <div>

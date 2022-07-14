@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import client, { urlFor } from "../utils/sanity";
+import client from "../utils/sanity";
 function Search({ placeholder }) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -16,7 +16,6 @@ function Search({ placeholder }) {
 
   const [filtrertData, settFiltrertData] = useState([]);
   const [input, settinput] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
 
   const startFiltrering = (event) => {
     const soekeOrd = event.target.value;
@@ -47,7 +46,7 @@ function Search({ placeholder }) {
           onChange={startFiltrering}
         />
       </div>
-      {filtrertData.length != 0 && (
+      {filtrertData.length !== 0 && (
         <div className="dataResult">
           {filtrertData.map((value, key) => {
             return (
